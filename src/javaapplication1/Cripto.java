@@ -29,34 +29,39 @@ public class Cripto {
     public void userHandler(){
         String pwdRange = null;
         int ctrlInput = 0;
+        String check;
         
-        System.out.println("Vuoi inserire un alphabeto in particolare?(s/n)");       
-        String check = scan.nextLine();
+        System.out.println("Vuoi inserire un alphabeto in particolare?(si/no)");       
+        check = scan.nextLine();
         
         do{
-            if(ctrlInput == 1)
+            if(ctrlInput == 1){
                 System.out.println("Inserimento non corretto, ripetere: ");
                 check = scan.nextLine();
-            
-            switch(check){
-                case "s":
+            }
+            System.out.println(""+check.charAt(0));
+            switch(check.charAt(0)){
+                case 's':
                     System.out.println("Inserisci: ");
                     pwdRange = scan.nextLine();
                     this.alphaH.addAlpha(pwdRange);
+                    ctrlInput = 0;
                 break;
-                case "n":
+                case 'n':                    
                     pwdRange = this.alphaH.alphaFinder(input);
-                    System.out.println("Alfabeto di riferimento: "+pwdRange);
+                    System.out.println("Sono nel caso n");
+                    ctrlInput = 0;
                 break;
                 default:
                     System.out.println("Inserimento non corretto, ripetere: ");
                     ctrlInput = 1;
                 break;
             }
-            scan.nextLine();                    // pulizia del buffer
+            System.out.println("Sono nel while");
+            //scan.nextLine();                    // pulizia del buffer
+            System.out.println("Sono nel while dopo nextLine");
         }while(ctrlInput == 1);
-
-        System.out.println("alfabeto lunghezza: "+(pwdRange.length()));
+        System.out.println("Alfabeto di riferimento: "+pwdRange);
         System.out.println("Attendere..");
         toCrypt(pwdRange);      
     }

@@ -23,7 +23,7 @@ public class AlphaHandler {
         this.alphabets.put("AlphaDigits", "1234567890");
         this.alphabets.put("AlphaLetters", alphabets.get("AlphaLowers")
                 .concat(alphabets.get("AlphaUppers")));
-        this.alphabets.put("AlphaTot", alphabets.get("AlphaUppers")
+        this.alphabets.put("AlphaTot", alphabets.get("AlphaLetters")
                 .concat(alphabets.get("AlphaDigits")));
         this.nUserAlpha = 0;
     }

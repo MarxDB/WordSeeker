@@ -39,7 +39,7 @@ public class Cripto {
                 System.out.println("Inserimento non corretto, ripetere: ");
                 check = scan.nextLine();
             }
-            System.out.println(""+check.charAt(0));
+
             switch(check.charAt(0)){
                 case 's':
                     System.out.println("Inserisci: ");
@@ -53,13 +53,10 @@ public class Cripto {
                     ctrlInput = 0;
                 break;
                 default:
-                    System.out.println("Inserimento non corretto, ripetere: ");
                     ctrlInput = 1;
                 break;
             }
-            System.out.println("Sono nel while");
-            //scan.nextLine();                    // pulizia del buffer
-            System.out.println("Sono nel while dopo nextLine");
+                                                        // pulizia del buffer?
         }while(ctrlInput == 1);
         System.out.println("Alfabeto di riferimento: "+pwdRange);
         System.out.println("Attendere..");

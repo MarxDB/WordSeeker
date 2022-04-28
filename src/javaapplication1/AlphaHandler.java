@@ -18,8 +18,8 @@ public class AlphaHandler {
     
     public AlphaHandler(){
         this.alphabets = new HashMap();
-        this.alphabets.put("AlphaLowers", "abcdefgkhilmnopqrstuvzyxw");
-        this.alphabets.put("AlphaUppers", "ABCDEFGKHILMNOPQRSTUVZYXW");
+        this.alphabets.put("AlphaLowers", "abcdefgkjhilmnopqrstuvzyxw");
+        this.alphabets.put("AlphaUppers", "ABCDEFGKJHILMNOPQRSTUVZYXW");
         this.alphabets.put("AlphaDigits", "1234567890");
         this.alphabets.put("AlphaLetters", alphabets.get("AlphaLowers")
                 .concat(alphabets.get("AlphaUppers")));

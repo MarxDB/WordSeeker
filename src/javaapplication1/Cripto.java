@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class Cripto {
     private int pwdStringIndex;
+    private final AlphaHandler alphaH;
     private final Scanner scan;
     final private String input;
     private boolean ctrlWhile;
@@ -22,35 +23,49 @@ public class Cripto {
         this.scan = new Scanner(System.in);
         this.pwdStringIndex = 0;
         this.ctrlWhile = false;
+        this.alphaH = new AlphaHandler();
     }
     
-    public void toCrypt(){
-        StringBuffer sb = new StringBuffer("a");        
+    public void userHandler(){
         String pwdRange = null;
-        long stopTime;
+        int ctrlInput = 0;
         
-        System.out.println("1) OnlyAlpha\n2) OnlyNumbers\n3) Mix");       
-        int check = scan.nextInt();
-
-        switch(check){
-            case 1:
-                pwdRange = "abcdefghilmnopqrstuvzxyjABCDEFGHILMNOPQRSTUVZXYJ";
-                System.out.println(""+pwdRange);
+        System.out.println("Vuoi inserire un alphabeto in particolare?(s/n)");       
+        String check = scan.nextLine();
+        
+        do{
+            if(ctrlInput == 1)
+                System.out.println("Inserimento non corretto, ripetere: ");
+                check = scan.nextLine();
+            
+            switch(check){
+                case "s":
+                    System.out.println("Inserisci: ");
+                    pwdRange = scan.nextLine();
+                    this.alphaH.addAlpha(pwdRange);
                 break;
-        case 2:
-                pwdRange = "1234567890";
-                System.out.println(""+pwdRange);
+                case "n":
+                    pwdRange = this.alphaH.alphaFinder(input);
+                    System.out.println("Alfabeto di riferimento: "+pwdRange);
                 break;
-        case 3:
-                pwdRange = "abcdefghilmnopqrstuvzxyjABCDEFGHILMNOPQRSTUVZXYJ1234567890";
-                System.out.println(""+pwdRange.toString());
+                default:
+                    System.out.println("Inserimento non corretto, ripetere: ");
+                    ctrlInput = 1;
                 break;
-        }        
+            }
+            scan.nextLine();                    // pulizia del buffer
+        }while(ctrlInput == 1);
 
         System.out.println("alfabeto lunghezza: "+(pwdRange.length()));
-
-        long startTime = System.currentTimeMillis();
         System.out.println("Attendere..");
+        toCrypt(pwdRange);      
+    }
+    
+    private void toCrypt(String pwdRange){
+        StringBuffer sb = new StringBuffer("a");        
+        long stopTime;
+        long startTime = System.currentTimeMillis();        
+
         while(!ctrlWhile){            
             for(int i = 0; i < pwdRange.length(); i++){
                 sb.setCharAt(this.pwdStringIndex, pwdRange.charAt(i));

@@ -22,7 +22,7 @@ public class Decrypto {
             System.out.println("Inserisci pwd di input: ");
             input = scan.nextLine();
             Cripto c = new Cripto(input);
-            c.toCrypt();      
+            c.userHandler();      
     }
     
 }

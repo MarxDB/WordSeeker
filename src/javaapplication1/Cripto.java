@@ -49,7 +49,6 @@ public class Cripto {
                 break;
                 case 'n':                    
                     pwdRange = this.alphaH.alphaFinder(input);
-                    System.out.println("Sono nel caso n");
                     ctrlInput = 0;
                 break;
                 default:

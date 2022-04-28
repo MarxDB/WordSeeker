@@ -19,10 +19,14 @@ public class Decrypto {
     public static void main(String[] args){
             Scanner scan = new Scanner(System.in);
             String input;
+            AlphaHandler aH = new AlphaHandler();
+            System.out.println(" "+aH.toString());
             System.out.println("Inserisci pwd di input: ");
             input = scan.nextLine();
             Cripto c = new Cripto(input);
-            c.userHandler();      
+            c.userHandler();
+
+            
     }
     
 }

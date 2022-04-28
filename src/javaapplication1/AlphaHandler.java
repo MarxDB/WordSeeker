@@ -54,6 +54,10 @@ public class AlphaHandler {
     
     @Override
     public String toString(){
-        return "Nome Alfabeto / Simboli\n"+this.alphabets.toString();
+        System.out.println("Nome Alfabeto\t/ Simboli\n");
+        for(String s: this.alphabets.keySet()){
+            System.out.println(""+s+"\t= "+this.alphabets.get(s));
+        }
+        return "";
     }
 }
